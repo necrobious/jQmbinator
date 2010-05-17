@@ -1,2 +1,13 @@
 HTML Combinators for jQuery:
-Because you already know HTML & jQuery, and because templating languages (especially in JavaScript) are poop. No, Seriously, they are. There you are  working away in your favorite programming language, which can already handle all types of expressions, loops, conditions and whatnot. Then some "genius" comes along and adds a whole other expression syntax into the mix. Now, when something goes wrong (which never happens, right?!), you get the privilege of spending hours in a debugger looking for where something failed in o’ turdblossom’s tempting system. It’s like the surly bastard never used an EDSL before. Well,  No More! jQmbinator is the way out, my friends. It might not look to purdy at first, but shit-howdy, it's gonna make writing large blocks of javascript-generated markup a whole lot easier than living with that abused feeling a template systems gonna leave you with. We know the way, and were gonna show you how!
+Because you already know HTML & jQuery, and because templating languages (especially in JavaScript) are poop. 
+
+No, Seriously, they are. 
+
+There you are  working away in your favorite programming language, which can already handle all types of expressions, loops, conditions and what not.
+Then some "genius" comes along and adds a whole other expression syntax into the mix. Now, when something goes wrong (which never happens, right?!), you get the privilege of spending hours in a debugger looking for where something failed in o’ turdblossom’s tempting system. It’s like the surly bastard never used an EDSL before. 
+
+Well,  No More! 
+
+jQmbinator is the way out, my friends. It might not look to purdy at first, but shit-howdy, it's gonna make writing large blocks of javascript-generated markup a whole lot easier than living with that abused feeling a template systems gonna leave you with. 
+
+We know the way, and were gonna show you how!
