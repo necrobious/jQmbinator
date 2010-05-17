@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" >
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+	<meta name="author" content="Dave Shea" />
+	<meta name="keywords" content="design, css, cascading, style, sheets, xhtml, graphic design, w3c, web standards, visual, display" />
+	<meta name="description" content="A demonstration of what can be accomplished visually through CSS-based design." />
+	<meta name="robots" content="all" />
+	<title>css Zen Garden: The Beauty in CSS Design</title>
+
+	<!-- to correct the unsightly Flash of Unstyled Content. http://www.bluerobot.com/web/css/fouc.asp -->
+	<script type="text/javascript"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+	<script type="text/javascript" src="http://github.com/necrobious/jQmbinator/raw/master/jQmbinator.js"></script>
+		
+	<style type="text/css" title="currentStyle" media="screen">
+		@import "http://www.csszengarden.com/001/001.css";
+	</style>
+	<link rel="Shortcut Icon" type="image/x-icon" href="http://www.csszengarden.com/favicon.ico" />	
+	<link rel="alternate" type="application/rss+xml" title="RSS" href="http://www.csszengarden.com/zengarden.xml" />
+
+</head>
+
+<!--
+
+
+	This xhtml document is marked up to provide the designer with the maximum possible flexibility.
+	There are more classes and extraneous tags than needed, and in a real world situation, it's more
+	likely that it would be much leaner.
+	
+	However, I think we can all agree that even given that, we're still better off than if this had been
+	built with tables.
+
+
+-->
+
+<!--
+	CSS Zen Garden Markup: Recreated in jQmbinator. (http://www.csszengarden.com/)
+	
+	This is an example of how you can build large amounts of markup programmatically using jQmbinator.
+	every div, a, h2, span, etc element is a jQuery object that can be used as you normally would.
+	You get the full power of javascript to handle all of your templating needs. No template language crapola!
+	functions, literal object definitions, and jQuery make even the most complex tempating needs trivial,
+	with out adding anything new, only using what you already know. 
+-->
+<body id="css-zen-garden">
+	<script type="text/javascript">
+			jQuery(document).ready(function () {
+				jQuery('body').append(
+					drawZenGarden(),
+					div({id:'extraDiv1'},span()),
+					div({id:'extraDiv2'},span()),
+					div({id:'extraDiv3'},span()),
+					div({id:'extraDiv4'},span()),
+					div({id:'extraDiv5'},span()),
+					div({id:'extraDiv6'},span())
+				);
+			});
+
+// Paint an <abbr title="Cascading Style Sheets">CSS</abbr> element,
+// this is a trivial example of how complex/repeditive content can be encapulated and included,
+// no need for a crappy template language to "include" a "component"!
+function cssAbbr () {
+	return abbr({title:'Cascading Style Sheets'},'CSS');
+}
+
+function drawZenGarden () {
+	return div({id:'container'},
+		div({id:'intro'},
+			div({id:'pageHeader'},
+				h1(span('css Zen Garden')),
+				h2(span('The Beauty of ',abbr({title:'Cascading Style Sheets'},'CSS', ' Design')))
+			),
+	
+			div({id:'quickSummary'},
+				p({clazz:'p1'}, span('A demonstration of what can be accomplished visually through ',cssAbbr,'-based design. Select any style sheet from the list to load it into this page.')),
+				p({clazz:'p2'}, span('Download the sample ', a({href:'/zengarden-sample.html', title:'This page\'s source HTML code, not to be modified.'}, 'html file'),' and ', a({href:'/zengarden-sample.css', title:'This page\'s sample CSS, the file you may modify.'},'css file')))
+			),
+			
+			div({id:'preamble'},
+				h3(span('The Road to Enlightenment')),
+				p({clazz:'p1'},span('Littering a dark and dreary road lay the past relics of browser-specific tags, incompatible ', abbr({title:'Document Object Model'},'DOM'), 's, and broken ', cssAbbr, ' support.')),
+				p({clazz:'p2'},span('Today, we must clear the mind of past practices. Web enlightenment has been achieved thanks to the tireless efforts of folk like the ', abbr({title:'World Wide Web Consortium'},'W3C'), ', ', abbr({title:'Web Standards Project'},'WaSP'),' and the major browser creators.')),
+				p({clazz:'p3'},span('The css Zen Garden invites you to relax and meditate on the important lessons of the masters. Begin to see with clarity. Learn to use the (yet to be) time-honored techniques in new and invigorating fashion. Become one with the web.'))
+			)
+		),
+		
+		div({id:'supportingText'},
+			div({id:'explanation'},
+				h3(span('So What is This About?')),
+				p({clazz:'p1'},span('There is clearly a need for ',cssAbbr,' to be taken seriously by graphic artists. The Zen Garden aims to excite, inspire, and encourage participation. To begin, view some of the existing designs in the list. Clicking on any one will load the style sheet into this very page. The code remains the same, the only thing that has changed is the external .css file. Yes, really.')),
+				p({clazz:'p2'},span(cssAbbr,' allows complete and total control over the style of a hypertext document. The only way this can be illustrated in a way that gets people excited is by demonstrating what it can truly be, once the reins are placed in the hands of those able to create beauty from structure. To date, most examples of neat tricks and hacks have been demonstrated by structurists and coders. Designers have yet to make their mark. This needs to change.'))
+			),
+	
+			div({id:'participation'},
+				h3(span('Participation')),
+				p({clazz:'p1'},span('Graphic artists only please. You are modifying this page, so strong ',cssAbbr,' skills are necessary, but the example files are commented well enough that even ',cssAbbr,' novices can use them as starting points. Please see the ', a({href:'http://www.mezzoblue.com/zengarden/resources/', title:'A listing of CSS-related resources'}, cssAbbr, ' Resource Guide'), ' for advanced tutorials and tips on working with ', cssAbbr, '.')),
+	
+				p({clazz:'p2'},span('You may modify the style sheet in any way you wish, but not the ',abbr({title:'HyperText Markup Language'},'HTML'),'. This may seem daunting at first if you&#8217;ve never worked this way before, but follow the listed links to learn more, and use the sample files as a guide.')),
+				p({clazz:'p3'},span('Download the sample ',a({href:'/zengarden-sample.html', title:'This page\'s source HTML code, not to be modified.'},'html file'),
+					' and ',
+					a({href:'/zengarden-sample.css', title:'This page\'s sample CSS, the file you may modify.'},'css file'),
+					' to work on a copy locally. Once you have completed your masterpiece (and please, don&#8217;t submit half-finished work) upload your .css file to a web server under your control.',
+					a({href:'http://www.mezzoblue.com/zengarden/submit/', title:'Use the contact form to send us your CSS file'},'Send us a link'),
+					' to the file and if we choose to use it, we will spider the associated images. Final submissions will be placed on our server.'
+				))
+			),
+	
+			div({id:'benefits'},
+				h3(span('Benefits')),
+				p({clazz:'p1'},span('Why participate? For recognition, inspiration, and a resource we can all refer to when making the case for ',cssAbbr,'-based design. This is sorely needed, even today. More and more major sites are taking the leap, but not enough have. One day this gallery will be a historical curiosity; that day is not today.'))
+			),
+	
+			div({id:'requirements'},
+				h3(span('Requirements')),
+				p({clazz:'p1'},span('We would like to see as much ', abbr({title:'Cascading Style Sheets, version 1'},'CSS1'),' as possible. ',abbr({title:'Cascading Style Sheets, version 2'},'CSS2'),' should be limited to widely-supported elements only. The css Zen Garden is about functional, practical ',cssAbbr,' and not the latest bleeding-edge tricks viewable by 2% of the browsing public. The only real requirement we have is that your ',cssAbbr,' validates.')),
+				p({clazz:'p2'},span('Unfortunately, designing this way highlights the flaws in the various implementations of ',cssAbbr,'. Different browsers display differently, even completely valid ',cssAbbr,' at times, and this becomes maddening when a fix for one leads to breakage in another. View the ', a({href:'http://www.mezzoblue.com/zengarden/resources/', title:'A listing of CSS-related resources'},'Resources'),' page for information on some of the fixes available. Full browser compliance is still sometimes a pipe dream, and we do not expect you to come up with pixel-perfect code across every platform. But do test in as many as you can. If your design doesn&#8217;t work in at least IE5+/Win and Mozilla (run by over 90% of the population), chances are we won&#8217;t accept it.')),
+				p({clazz:'p3'},span('We ask that you submit original artwork. Please respect copyright laws. Please keep objectionable material to a minimum; tasteful nudity is acceptable, outright pornography will be rejected.')),
+				p({clazz:'p4'},span('This is a learning exercise as well as a demonstration. You retain full copyright on your graphics (with limited exceptions, see ', a({href:'http://www.mezzoblue.com/zengarden/submit/guidelines/'},'submission guidelines'),'), but we ask you release your ',cssAbbr,' under a Creative Commons license identical to the ', a({href:'http://creativecommons.org/licenses/by-nc-sa/1.0/', title:'View the Zen Garden\'s license information.'},'one on this site'),' so that others may learn from your work.')),
+				p({clazz:'p5'},span('Bandwidth graciously donated by ', a({href:'http://www.mediatemple.net/'},'mediatemple'),'. Now available: ', a({href:'http://www.amazon.com/exec/obidos/ASIN/0321303474/mezzoblue-20/'},'Zen Garden, the book'),'.'),'&nbsp;')
+			),
+	
+			div({id:'footer'},
+				a({href:'http://validator.w3.org/check/referer', title:'Check the validity of this site&#8217;s XHTML'},'xhtml'), '&nbsp;', 
+				a({href:'http://jigsaw.w3.org/css-validator/check/referer', title:'Check the validity of this site&#8217;s CSS'},'css'), '&nbsp;', 
+				a({href:'http://creativecommons.org/licenses/by-nc-sa/1.0/', title:'View details of the license of this site, courtesy of Creative Commons.'},'cc'), '&nbsp;',
+				a({href:'http://mezzoblue.com/zengarden/faq/#s508', title:'Read about the accessibility of this site'},'508'), '&nbsp;',
+				a({href:'http://www.mezzoblue.com/zengarden/faq/#aaa', title:'Read about the accessibility of this site'},'aaa')
+			)
+	
+		),
+		
+		div({id:'linkList'},
+			div({id:'linkList2'},
+
+				div({id:'lselect'},
+					h3({clazz:'select'},span('Select a Design:')),
+					ul(
+						li(a({href:'?cssfile=/213/213.css&amp;page=0', title:'AccessKey: a', accesskey:'a'},'Under the Sea!'),' by ', a({href:'http://www.ericstoltz.com/', clazz:'c'},'Eric Stoltz')),
+						li(a({href:'?cssfile=/212/212.css&amp;page=0', title:'AccessKey: b', accesskey:'b'},'Make &#8217;em Proud'),' by ',a({href:'http://skybased.com/', clazz:'c'},'Michael McAghon and Scotty Reifsnyder')),
+	
+						li(a({href:'?cssfile=/211/211.css&amp;page=0', title:'AccessKey: c', accesskey:'c'},'Orchid Beauty'),' by ',a({href:'http://www.kevinaddison.com/', clazz:'c'},'Kevin Addison')),
+						li(a({href:'?cssfile=/210/210.css&amp;page=0', title:'AccessKey: d', accesskey:'d'},'Oceanscape'),' by ',a({href:'http://www.pixel-house.com.au/', clazz:'c'},'Justin Gray')),
+						li(a({href:'?cssfile=/209/209.css&amp;page=0', title:'AccessKey: e', accesskey:'e'},'CSS Co., Ltd.'),' by ',a({href:'http://www.benklemm.de/', clazz:'c'},'Benjamin Klemm')),
+	
+						li(a({href:'?cssfile=/208/208.css&amp;page=0', title:'AccessKey: f', accesskey:'f'},'Sakura'),' by ',a({href:'http://www.re-bloom.com/', clazz:'c'},'Tatsuya Uchida')),
+						li(a({href:'?cssfile=/207/207.css&amp;page=0', title:'AccessKey: g', accesskey:'g'},'Kyoto Forest'),' by ',a({href:'http://rpmdesignfactory.com/', clazz:'c'},'John Politowski')),
+						li(a({href:'?cssfile=/206/206.css&amp;page=0', title:'AccessKey: h', accesskey:'h'},'A Walk in the Garden'),' by ',a({href:'http://users.skynet.be/bk316398/temp.html', clazz:'c'},'Simon Van Hauwermeiren'))
+					)
+				),
+				
+				div({id:'larchives'},
+					h3({clazz:'archives'},span('Archives:')),
+					ul(
+						li(a({href:'/?cssfile=/001/001.css&amp;page=1', title:'View next set of designs. AccessKey: n', accesskey:'n'},span({clazz:'accesskey'},'n'),'ext designs &raquo;')),
+						li(a({href:'http://www.mezzoblue.com/zengarden/alldesigns/', title:'View every submission to the Zen Garden. AccessKey: w', accesskey:'w'},'Vie',span({clazz:'accesskey'},'w'), ' All Designs'))
+					)
+				),
+				
+				div({id:'lresources'},
+					h3({clazz:'resources'},span('Resources:')),
+					ul(
+						li(a({href:'/001/001.css', title:'View the source CSS file for the currently-viewed design, AccessKey: v', accesskey:'v'},span({class:'accesskey'},'V'),'iew This Design&#8217;s ',cssAbbr)),
+						li(a({href:'http://www.mezzoblue.com/zengarden/resources/', title:'Links to great sites with information on using CSS. AccessKey: r', accesskey:'r'},cssAbbr, span({clazz:'accesskey'},'R'),'esources')),
+	
+						li(a({href:'http://www.mezzoblue.com/zengarden/faq/', title:'A list of Frequently Asked Questions about the Zen Garden. AccessKey: q', accesskey:'q'},abbr({title:'Frequently Asked Questions'},'FA',span({clazz:'accesskey'},'Q')))),
+						li(a({href:'http://www.mezzoblue.com/zengarden/submit/', title:'Send in your own CSS file. AccessKey: s', accesskey:'s'},span({clazz:'accesskey'},'S'),'ubmit a Design')),
+						li(a({href:'http://www.mezzoblue.com/zengarden/translations/', title:'View translated versions of this page. AccessKey: t', accesskey:'t'},span({clazz:'accesskey'},'T'),'ranslations'))
+					)
+				)
+			)
+		)
+	
+	); // end container
+}
+	</script>
+
+</body>
+</html>
