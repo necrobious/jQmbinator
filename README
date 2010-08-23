@@ -11,3 +11,9 @@ Well,  No More!
 jQmbinator is the way out, my friends. It might not look to purdy at first, but shit-howdy, it's gonna make writing large blocks of javascript-generated markup a whole lot easier than living with that abused feeling a template systems gonna leave you with. 
 
 We know the way, and were gonna show you how!
+
+First, include jQuery and jQmbinator into your page:
+
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+        <script type="text/javascript" src="http://github.com/necrobious/jQmbinator/raw/master/jQmbinator.js"></script>
+

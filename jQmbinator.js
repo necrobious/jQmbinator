@@ -21,7 +21,11 @@ function el() {
     var closeBracket = (this.empty || arglen == 0) ? '/>' : '>';
     
     var jq;
-    
+
+    var isArray = function (value) {
+      return (typeof value.length === 'number' && !(value.propertyIsEnumerable('length')) && typeof value.splice === 'function')
+    }
+
     // handle void elements without children 
     if (arglen == 0) {
     	jq = jQuery(openBracket + closeBracket);
@@ -33,30 +37,39 @@ function el() {
     for (var i = 0; i<arguments.length; i++) {
         var child = arguments[i];
         var type = typeof child;
+
+        // skip null values
+        if (!child) {continue;}
+
+        // set the opening tag, with its attrs
+        if (i==0) {
+            // element w/  attributes
+            if (type === 'object' && !child.jquery) { 
+                jq = jQuery(openBracket + elAt(child) + closeBracket);
+                jq.jQmbinator = '0.0.1';
+                continue;
+            }
+            // element w/o atributes
+            else { 
+                jq = jQuery(openBracket + closeBracket);
+                jq.jQmbinator = '0.0.1';
+            }
+        }
 		
-		// set the opening tag, with its attrs
-		if (i==0) {
-			
-			// element w/  attributes
-			if (type === 'object' && !child.jquery) { 
-				jq = jQuery(openBracket + elAt(child) + closeBracket);
-				jq.jQmbinator = '0.0.1';
-				continue;
-			}
-			// element w/o atributes
-			else { 
-				jq = jQuery(openBracket + closeBracket);
-				jq.jQmbinator = '0.0.1';
-			}
-		}
-		
-		// only strings and jQs get appended
-		if (type === 'object' && !child.jquery) {continue;} 
-		
-        if (type === 'string' || child.jquery) jq.append(child);
-        if (type === 'function') jq.append(child());
+        // only funcitons, strings, jQs, or an array-of get appended
+        if (type === 'object' && !isArray(child) && !child.jquery) {continue;} 
+      
+        // pluralize the child, to normalize handling between scalars and arrays 
+        var kids = (isArray(child)) ? child : [child];
+        for (var j=0; j<kids.length; j++) { 
+            var kid = kids[j];
+            var childType = typeof kid;
+
+            if (childType === 'string' || kid.jquery) jq.append(kid);
+            if (childType === 'function') jq.append(kid());
+        }
     }
-  	return jq;
+    return jq;
 }
 
 function a() {this.eln="a"; this.empty = false; return el.apply(this, arguments);}
