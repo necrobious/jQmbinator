@@ -41,10 +41,12 @@ function el() {
         // skip null values
         if (!child) {continue;}
 
+        var is_array = isArray(child);
+
         // set the opening tag, with its attrs
-        if (i==0) {
+        if (i === 0) {
             // element w/  attributes
-            if (type === 'object' && !child.jquery) { 
+            if (type === 'object' && !child.jquery && !is_array) { 
                 jq = jQuery(openBracket + elAt(child) + closeBracket);
                 jq.jQmbinator = '0.0.1';
                 continue;
@@ -57,11 +59,11 @@ function el() {
         }
 		
         // only funcitons, strings, jQs, or an array-of get appended
-        if (type === 'object' && !isArray(child) && !child.jquery) {continue;} 
+        if (type === 'object' && !is_array && !child.jquery) {continue;} 
       
         // pluralize the child, to normalize handling between scalars and arrays 
-        var kids = (isArray(child)) ? child : [child];
-        for (var j=0; j<kids.length; j++) { 
+        var kids = (is_array) ? child : [child];
+        for (var j = 0; j<kids.length; j++) { 
             var kid = kids[j];
             var childType = typeof kid;
 
